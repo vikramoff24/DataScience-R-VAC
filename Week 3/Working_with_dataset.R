@@ -10,8 +10,8 @@ View(My_friends)
 str(My_friends)
 levels(My_friends$Height) #displays category available in particular column
 #I want to check who is eligible for military #age<26 
-My_friends$Eligibility=My_friends$Age<26 
+My_friends$Eligibility=My_friends$Age<26 #adding particular column 
 View(My_friends) 
 #creating Subset of particular condition.
-Eligible=subset(My_friends,My_friends$age<26)
-
+Eligible=subset(My_friends,My_friends$Age<26)
+View(Eligible)
