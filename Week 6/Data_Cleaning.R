@@ -9,7 +9,6 @@ Name<-web%>%html_nodes(".lister-item-header a")%>%html_text()
 year<-web%>%html_nodes(".text-muted.unbold")%>%html_text()
 duration<-web%>%html_nodes(".runtime")%>%html_text()
 rating<-web%>%html_nodes(".ratings-imdb-rating strong")%>%html_text()
-
 str(imdb.ratings)
 # Remove special characters
 imdb.ratings$year <-gsub("\\(|\\)", "", imdb.ratings$year)
