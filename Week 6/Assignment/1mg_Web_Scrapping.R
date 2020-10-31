@@ -19,9 +19,15 @@ Discount<-web%>%html_nodes(".style__off-badge___2JaF-")%>%html_text()
 SellingPrice<-web%>%html_nodes(".style__price-tag___cOxYc span")%>%html_text()
 NoOfRatings<-web%>%html_nodes(".CardRatingDetail__ratings-header___2yyQW")%>%html_text()
 
-#Dataset
-
 mg.products <-data.frame(Name,Quantity,Rating,NoOfRatings,MRP,Discount,Selling_Price)
+
+#Data Cleaning
+
+mg.products$MRP<-gsub("[???]","",mg.products$MRP)
+mg.products$Discount<-gsub("% off","",mg.products$Discount)
+  
+#Dataset
+  
 
 names(mg.products)<-c("Name","Quantity","Rating","NoOfRatings","MRP (???)","Discount (in %)","Selling_Price")
 
