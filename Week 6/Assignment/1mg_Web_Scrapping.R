@@ -25,7 +25,7 @@ mg.products <-data.frame(Name,Quantity,Rating,NoOfRatings,MRP,Discount,Selling_P
 
 mg.products$MRP<-gsub("[???]","",mg.products$MRP)
 mg.products$Discount<-gsub("% off","",mg.products$Discount)
-  
+mg.products$NoOfRatings<-gsub("ratings","",mg.products$NoOfRatings)
 #Dataset
   
 
