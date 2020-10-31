@@ -29,7 +29,7 @@ mg.products$Discount<-gsub("% off","",mg.products$Discount)
 #Dataset
   
 
-names(mg.products)<-c("Name","Quantity","Rating","NoOfRatings","MRP (???)","Discount (in %)","Selling_Price")
+names(mg.products)<-c("Name","Quantity","Rating","No Of Ratings","MRP (???)","Discount (in %)","Selling_Price")
 
 
 #Viewing the dataset
