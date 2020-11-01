@@ -22,16 +22,17 @@ NoOfRatings<-web%>%html_nodes(".CardRatingDetail__ratings-header___2yyQW")%>%htm
 mg.products <-data.frame(Name,Quantity,Rating,NoOfRatings,MRP,Discount,Selling_Price)
 
 #Data Cleaning
-
 mg.products$MRP<-gsub("[???]","",mg.products$MRP)
 mg.products$Discount<-gsub("% off","",mg.products$Discount)
 mg.products$NoOfRatings<-gsub("ratings","",mg.products$NoOfRatings)
-#Dataset
-  
 
+
+
+#Dataset
 names(mg.products)<-c("Name","Quantity","Rating","No Of Ratings","MRP (???)","Discount (in %)","Selling_Price")
 
-
 #Viewing the dataset
-
 View(mg.products)
+
+#Structure Of Dataset
+str(mg.products)
