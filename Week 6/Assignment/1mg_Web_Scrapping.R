@@ -19,16 +19,23 @@ Discount<-web%>%html_nodes(".style__off-badge___2JaF-")%>%html_text()
 SellingPrice<-web%>%html_nodes(".style__price-tag___cOxYc span")%>%html_text()
 NoOfRatings<-web%>%html_nodes(".CardRatingDetail__ratings-header___2yyQW")%>%html_text()
 
-mg.products <-data.frame(Name,Quantity,Rating,NoOfRatings,MRP,Discount,Selling_Price)
+#Dataset
+mg.products <-data.frame(Name,Quantity,Rating,NoOfRatings,MRP,Discount,SellingPrice)
 
 #Data Cleaning
 mg.products$MRP<-gsub("[???]","",mg.products$MRP)
 mg.products$Discount<-gsub("% off","",mg.products$Discount)
 mg.products$NoOfRatings<-gsub("ratings","",mg.products$NoOfRatings)
 
+#Changing the datatype
 
+mg.products$Rating<-as.numeric(as.character(mg.products$Rating))
+mg.products$NoOfRatings<-as.numeric(mg.products$NoOfRatings)
+mg.products$MRP<-as.numeric(as.character(mg.products$MRP))
+mg.products$Discount<-as.numeric(mg.products$Discount)
+mg.products$SellingPrice<-as.numeric(mg.products$SellingPrice)
 
-#Dataset
+#Changing the column name
 names(mg.products)<-c("Name","Quantity","Rating","No Of Ratings","MRP (???)","Discount (in %)","Selling_Price")
 
 #Viewing the dataset
