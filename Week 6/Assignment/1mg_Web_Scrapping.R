@@ -43,3 +43,6 @@ View(mg.products)
 
 #Structure Of Dataset
 str(mg.products)
+
+#Saving Dataset 
+write.csv(mg.products,"1mg_Products.csv")
