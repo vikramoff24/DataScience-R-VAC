@@ -1,5 +1,3 @@
-
-
 #Reading data with Read Lines
 data2<-readLines("Sample-2.txt")
 View(data2)
@@ -26,6 +24,8 @@ assignFields<-function(x){
 #Apply The function - Lapply fuction for list of list
 Standard_data<-lapply(My_list, assignFields)
 View(Standard_data)
+
+#matrix is used for 
 #Transform to dataframe
 M<-matrix(unlist(Standard_data),
           nrow = length(Standard_data),
