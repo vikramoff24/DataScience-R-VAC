@@ -1,0 +1,108 @@
+---
+title: "Daily Expenses"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(dplyr)
+
+Titanic<-read.csv("titanic.csv",stringsAsFactors = FALSE)
+```
+# Page 1
+
+## Column {data-width=350}
+
+### people survived
+
+```{r}
+
+ggplot(Titanic,aes(x=survived))+
+    theme_classic()+
+    geom_bar()+
+    labs(y="Passenger count",
+            title = "Titanic Survival Count")
+```
+
+### Gender wise survival
+
+```{r}
+ggplot(Titanic,aes(x=sex,fill=survived))+
+  theme_light()+
+  geom_bar()+
+  labs(y="Passenger count",
+       title = "Titanic Survival Count by gender")
+
+```
+
+## Column {data-width=350}
+
+### Survival based on class
+
+```{r}
+ggplot(Titanic,aes(x=pclass,fill=survived))+
+  theme_light()+
+  geom_bar()+
+  labs(y="Passenger count",
+       title = "Titanic Survival Count by class")
+```
+
+# page 3
+
+## Column {data-width=500}
+
+### Faceting Data
+
+```{r}
+ggplot(Titanic,aes(x=sex,fill=survived))+
+theme_light()+
+facet_grid(~pclass)+
+  geom_bar()+
+  labs(y="Passenger count",
+       title = "Titanic Survival Count by class and gender")
+```
+
+## Column {data-width=500}
+
+### Trying a pie chart
+
+```{r}
+ggplot(Titanic, aes( x ="", fill = survived ) ) +
+  geom_bar( position="fill" ) +
+  facet_grid(~pclass) +
+  coord_polar( theta = "y" )
+```
+
+# page 3
+
+## Column {data-width=500}
+
+### age group who dies onboard
+
+```{r}
+ggplot(Titanic,aes(x=survived,y = age))+
+  theme_bw()+
+  geom_boxplot()+
+  labs(y="age",
+       x="survived",
+       title = "Titanic survival rate by age")
+```
+
+## Column {data-width=500}
+
+### facet and density plot
+
+```{r}
+ggplot(Titanic,aes(x=age,fill=survived))+
+    theme_bw()+
+    facet_wrap(sex~pclass)+
+    geom_density(alpha=0.5)+
+    labs(y="age",
+         x="survived",
+         title = "Titanic survival rate by age,class and gender")
+
+```
