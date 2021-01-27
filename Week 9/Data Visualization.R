@@ -70,4 +70,17 @@ pie <-  ggplot(pc, aes(x = "", y=amount, fill = factor(expense))) +
 
 pie + coord_polar(theta = "y", start = 0)
 
+#medical Expenses
+
+md <- expenses[,4]
+de <- expenses[,1]
+dm <- data.frame(de,md)
+
+
+ggplot(data = dm, aes(x = de, y = md))+
+  geom_point(size = 4 )+
+  labs(x = "Expenses",
+       y = "Medical",
+       title = "Medical Expenses")
+
 
