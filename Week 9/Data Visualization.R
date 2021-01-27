@@ -49,5 +49,15 @@ ggplot(data = df, aes(x = detail, y = total))+
        y = "Expenses",
        title = "Comparing Expenses")
 
+#Total Expenses
+cm<-expenses[,2:9] #cumulative data
+dt<-expenses[,1]
+rs<-rowSums(cm)
+dg<-data.frame(dt,rs)
+ggplot(data = dg, aes(x = dt, y = rs))+
+  geom_line(color = "#00AFBB", size = 2)+
+  labs(x = "Date",
+       y = "Expenses",
+       title = "Total Expenses")
 
 
