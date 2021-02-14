@@ -83,4 +83,9 @@ ggplot(data = dm, aes(x = de, y = md))+
        y = "Medical",
        title = "Medical Expenses")
 
+#Distribution medical expenses - Histogram
+
+ggplot(expenses, aes(x= Medical)) +
+  geom_histogram(binwidth = 5, fill = "blue")
+
 
